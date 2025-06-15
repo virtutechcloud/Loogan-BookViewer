@@ -106,15 +106,15 @@ export default function StudentSidebar({
       "currently-reading": "/student/library/currently-reading",
       completed: "/student/library/completed",
 
-      // Bookmarks & Notes routes
-      "bookmarks-list": "/student/bookmarks/bookmarks",
-      "notes-list": "/student/bookmarks/notes",
-      "highlights-list": "/student/bookmarks/highlights",
+      // Reading Tools routes
+      bookmarks: "/student/reading/bookmarks",
+      notes: "/student/reading/notes",
+      highlights: "/student/reading/highlights",
 
       // Accessibility routes
       "font-settings": "/student/accessibility/font-settings",
       "text-to-speech": "/student/accessibility/text-to-speech",
-      "display-settings": "/student/accessibility/display-settings",
+      "display-settings": "/student/accessibility/display",
 
       // Progress & Stats routes
       "overall-progress": "/student/progress/overall",
@@ -124,7 +124,7 @@ export default function StudentSidebar({
       // Settings routes
       account: "/student/settings/account",
       preferences: "/student/settings/preferences",
-      sync: "/student/settings/sync",
+      sync: "/student/settings/sync-backup",
     };
 
     return routeMap[subItemId] || "/student";
@@ -193,14 +193,14 @@ export default function StudentSidebar({
       ],
     },
     {
-      id: "bookmarks",
-      label: "Bookmarks & Notes",
-      icon: Bookmark,
-      badge: bookmarks.length + notes.length + highlights.length,
+      id: "reading-tools",
+      label: "Reading Tools",
+      icon: BookOpen,
+      badge: null,
       subItems: [
-        { id: "bookmarks-list", label: "Bookmarks", icon: Bookmark },
-        { id: "notes-list", label: "Notes", icon: StickyNote },
-        { id: "highlights-list", label: "Highlights", icon: Highlighter },
+        { id: "bookmarks", label: "Bookmarks", icon: Bookmark },
+        { id: "notes", label: "Notes", icon: StickyNote },
+        { id: "highlights", label: "Highlights", icon: Highlighter },
       ],
     },
     {
@@ -546,7 +546,7 @@ export default function StudentSidebar({
   );
 
   return (
-    <div className="h-full flex flex-col bg-background border-r">
+    <div className="w-80 h-full flex flex-col bg-background border-r">
       {/* Navigation Menu */}
       <ScrollArea className="flex-1">
         <div className="p-4 space-y-2">
