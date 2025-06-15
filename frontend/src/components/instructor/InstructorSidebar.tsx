@@ -62,6 +62,9 @@ export default function InstructorSidebar({
   // Navigation mapping for sub-menu items
   const getNavigationPath = (subItemId: string): string => {
     const routeMap: Record<string, string> = {
+      // Dashboard
+      dashboard: "/instructor",
+
       // Courses routes
       "all-courses": "/instructor/courses/all-courses",
       "create-course": "/instructor/courses/create-course",
@@ -69,11 +72,11 @@ export default function InstructorSidebar({
 
       // Materials routes
       "all-materials": "/instructor/materials/all-materials",
-      "upload-material": "/instructor/materials/upload-material",
+      "upload-material": "/instructor/materials/upload",
       "material-library": "/instructor/materials/library",
 
       // Students routes
-      "student-list": "/instructor/students/student-list",
+      "student-list": "/instructor/students",
       "student-progress": "/instructor/students/progress",
       "student-analytics": "/instructor/students/analytics",
 
@@ -92,7 +95,7 @@ export default function InstructorSidebar({
       // Settings routes
       "profile-settings": "/instructor/settings/profile",
       "course-preferences": "/instructor/settings/preferences",
-      accessibility: "/instructor/settings/accessibility",
+      "sync-backup": "/instructor/settings/sync-backup",
     };
 
     return routeMap[subItemId] || "/instructor";
@@ -168,7 +171,7 @@ export default function InstructorSidebar({
       id: "communication",
       label: "Communication",
       icon: MessageSquare,
-      badge: 5,
+      badge: announcements.length,
       subItems: [
         { id: "announcements", label: "Announcements", icon: Megaphone },
         { id: "messages", label: "Messages", icon: Mail },
@@ -184,7 +187,7 @@ export default function InstructorSidebar({
       subItems: [
         { id: "profile-settings", label: "Profile", icon: UserCheck },
         { id: "course-preferences", label: "Preferences", icon: Settings },
-        { id: "accessibility", label: "Accessibility", icon: Eye },
+        { id: "sync-backup", label: "Sync & Backup", icon: FileText },
       ],
     },
   ];
